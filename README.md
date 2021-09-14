@@ -1,4 +1,4 @@
-#### Docker scripts for PHP/Laravel local development.
+#### Docker scripts for PHP / Laravel local development
 
 Stack:
  - PHP 8.0
