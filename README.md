@@ -6,5 +6,6 @@ Stack:
  - MySQL 5.7
  - PHPMyAdmin
 
-App URL: localhost:8001
-PHPMyAdmin URL: localhost:8081
+App URL: http://localhost:8001
+
+PHPMyAdmin URL: http://localhost:8081
