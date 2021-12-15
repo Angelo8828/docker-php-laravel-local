@@ -52,6 +52,7 @@ services:
       PMA_PORT: 3306
       PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
+      UPLOAD_LIMIT: 300M
     depends_on:
       - db
     ports:
