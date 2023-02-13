@@ -21,9 +21,9 @@ services:
     ports: ["3326:3306"]
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
@@ -42,6 +42,16 @@ services:
     networks:
       - app-php-network
 
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6380:6379
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-php-network
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     networks:
@@ -52,7 +62,7 @@ services:
       PMA_PORT: 3306
       PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
-      UPLOAD_LIMIT: 300M
+      UPLOAD_LIMIT: 1G
     depends_on:
       - db
     ports:
